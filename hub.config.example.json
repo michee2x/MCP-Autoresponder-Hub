@@ -1,0 +1,28 @@
+{
+  "mode": "auto",
+  "maxToolsForNamespaced": 40,
+  "toolsTtlSeconds": 300,
+  "accounts": [
+    {
+      "id": "aweber-main",
+      "label": "AWeber - Main account",
+      "url": "https://mcp.aweber.com/mcp",
+      "headers": { "Authorization": "Bearer ${AWEBER_MAIN_TOKEN}" },
+      "denyTools": ["delete_*"]
+    },
+    {
+      "id": "systeme-1",
+      "label": "systeme.io - Store A",
+      "url": "https://YOUR-SYSTEME-MCP-URL/mcp",
+      "headers": { "X-API-Key": "${SYSTEME_A_KEY}" }
+    },
+    {
+      "id": "local-example",
+      "label": "Any stdio MCP (runs as a child process)",
+      "command": "npx",
+      "args": ["-y", "some-autoresponder-mcp"],
+      "env": { "API_KEY": "${LOCAL_EXAMPLE_KEY}" },
+      "enabled": false
+    }
+  ]
+}
